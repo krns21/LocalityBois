@@ -1,0 +1,15 @@
+.card {
+    width: 100%;
+    height: 600px;
+    background-color: rgb(169, 108, 238);
+    color:darkcyan;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    position: relative;
+  }
