@@ -1,15 +1,14 @@
 .card {
-    width: 100%;
-    height: 600px;
-    background-color: rgb(226, 174, 30);
-    color:darkcyan;
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
-    position: relative;
+  }
+
+  .card__face--front {
+    background-image: linear-gradient(to bottom right, var(--europ-yellow), var(--europ-orange));
+  }
+  
+  .card__header:after {
+    background-image: linear-gradient(to bottom left, var(--europ-yellow) 10%, var(--europ-orange) 185%);
   }

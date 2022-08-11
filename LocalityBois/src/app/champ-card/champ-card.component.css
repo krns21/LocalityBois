@@ -1,15 +1,14 @@
 .card {
-    width: 100%;
-    height: 600px;
-    background-color: rgb(169, 108, 238);
-    color:darkcyan;
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
-    position: relative;
   }
+  
+  .card__face--front {
+    background-image: linear-gradient(to bottom right, var(--champ-blue), var(--champ-purple));
+  }
+  .card__header:after {
+    background-image: linear-gradient(to bottom left, var(--champ-blue) 10%, var(--champ-purple) 115%);
+  }
+  

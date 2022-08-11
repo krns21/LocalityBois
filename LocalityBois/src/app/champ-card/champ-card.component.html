@@ -1,3 +1,16 @@
 <div class="card">
-    <img height="150" alt="Premier League Logo" src="\assets\LB-champ-logo.png">
+    <div #myca class="card__inner" (click)="myca.classList.toggle('is-flipped')">
+        <div class="card__face card__face--front">
+            <img height="150" alt="Premier League Logo" src="\assets\LB-champ-logo.png">
+        </div>
+        <div class="card__face card__face--back">
+            <div class="card__content">
+                <div class="card__header">
+                </div>
+                <div class="card__body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
