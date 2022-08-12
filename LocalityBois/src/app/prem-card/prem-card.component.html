@@ -15,17 +15,11 @@
                             <th>GW</th>
                             <th>TOT</th>
                         <tbody>
-                          <tr>
-                            <td class="numeric">1</td>
-                            <td>Kavinthan Vickneswaran</td>
-                            <td class="numeric">78</td>
-                            <td class="numeric">78</td>
-                          </tr>
-                          <tr>
-                            <td class="numeric">1</td>
-                            <td>Sarujan Rajaratnam</td>
-                            <td class="numeric">78</td>
-                            <td class="numeric">78</td>
+                          <tr *ngFor = "let prem of standings">
+                            <td class="numeric">{{prem.rank}}</td>
+                            <td>{{prem.manager}}</td>
+                            <td class="numeric">{{prem.gameweek}}</td>
+                            <td class="numeric">{{prem.total}}</td>
                           </tr>
                         </tbody>
                       </table>
