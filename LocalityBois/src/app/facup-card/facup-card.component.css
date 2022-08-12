@@ -12,3 +12,13 @@
   .card__header:after {
     background-image: linear-gradient(to bottom left, var(--facup-blue) 10%, var(--facup-red) 115%);
   }
+
+  th {
+    background-image: linear-gradient(to bottom right, var(--facup-blue) 50%, var(--facup-red) 100%);
+    color: #fff;
+    white-space: nowrap;
+  }
+  
+  tbody {
+    background-color: var(--facup-light);
+  }

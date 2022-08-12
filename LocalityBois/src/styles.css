@@ -11,6 +11,10 @@
     --europ-orange:#eb8f16;
     --facup-blue:#3176dd;
     --facup-red:#181bcf;
+    --facup-light:#d6e3f7;
+    --europ-light:#eee9be;
+    --champ-light:#e8beee;
+    --ballon-light:#f1eed1;
 }
 
 .card {
@@ -61,18 +65,20 @@
   }
   
   .card__face--back {
-    background-color: var(--light);
+    background-color: #fff;
     transform: rotateY(180deg);
   }
   
   .card__content {
     width: 100%;
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .card__header {
     position: relative;
-    padding: 30px 30px 40px;
+    padding: 5px 30px 5px;
   }
   
   .card__header:after {
@@ -87,16 +93,12 @@
     border-radius: 0px 0px 50% 0px;
   }
   
-  .card__header h2 {
+  .card__header h3 {
     color: #FFF;
-    font-size: 32px;
-    font-weight: 900;
+    font-size: 24px;
+    font-weight: 0;
     text-transform: uppercase;
     text-align: center;
-  }
-  
-  .card__body {
-    padding: 30px;
   }
   
   .card__body h3 {
@@ -110,4 +112,17 @@
     color:var(--dark);
     font-size: 18px;
     line-height: 1.4;
+  }
+
+  .table {
+    width: 100%;
+  }
+
+  th,td {
+    text-align: left;
+    padding: 4px 12px;
+  }
+
+  .numeric {
+   text-align: right; 
   }

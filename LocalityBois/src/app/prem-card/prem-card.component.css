@@ -13,3 +13,18 @@
 .card__header:after {
   background-image: linear-gradient(to bottom left, var(--prem-blue) 10%, var(--prem-green) 115%);
 }
+
+th {
+  background-image: linear-gradient(to bottom right, var(--prem-blue) 50%, var(--prem-green) 100%);
+  color: #fff;
+  white-space: nowrap;
+}
+
+tbody {
+  background-color: var(--light);
+}
+
+th,td {
+  text-align: left;
+  padding: 4px 27px;
+}
