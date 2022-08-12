@@ -1,4 +1,5 @@
 .card {
+    width: 500px;
     height: 800px;
     grid-column-start: 2;
     grid-column-end: 2;
@@ -13,4 +14,17 @@
   
   .card__header:after {
     background-image: linear-gradient(to bottom left, var(--dark) 10%, var(--ballondor-gold) 185%);
+  }
+
+  th {
+    background-image: linear-gradient(to bottom right, var(--dark) 150%,rgb(100, 90, 56) 100%);
+    color: #fff;
+    white-space: nowrap;
+  }
+  
+  tbody {
+    background-color: var(--ballon-light);
+  }
+  th,td {
+    padding: 4px 10px;
   }

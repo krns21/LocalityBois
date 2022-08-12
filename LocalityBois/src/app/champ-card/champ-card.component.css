@@ -11,4 +11,14 @@
   .card__header:after {
     background-image: linear-gradient(to bottom left, var(--champ-blue) 10%, var(--champ-purple) 115%);
   }
+
+  th {
+    background-image: linear-gradient(to bottom right, var(--champ-blue) 45%, var(--champ-purple) 110%);
+    color: #fff;
+    white-space: nowrap;
+  }
+  
+  tbody {
+    background-color: var(--champ-light);
+  }
   

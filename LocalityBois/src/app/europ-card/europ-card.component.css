@@ -12,3 +12,13 @@
   .card__header:after {
     background-image: linear-gradient(to bottom left, var(--europ-yellow) 10%, var(--europ-orange) 185%);
   }
+
+  th {
+  background-image: linear-gradient(to bottom right, var(--europ-orange) 50%, var(--europ-yellow) 100%);
+  color: #fff;
+  white-space: nowrap;
+}
+
+tbody {
+  background-color: var(--europ-light);
+}
