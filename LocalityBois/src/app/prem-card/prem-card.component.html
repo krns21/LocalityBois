@@ -15,6 +15,12 @@
                             <th>GW</th>
                             <th>TOT</th>
                         <tbody>
+                          <tr *ngFor = "let x of standings">
+                            <td class="numeric">{{x.rank}}</td>
+                            <td>{{x.player_name}}</td>
+                            <td class="numeric">{{x.event_total}}</td>
+                            <td class="numeric">{{x.total}}</td>
+                          </tr>
                         </tbody>
                       </table>
                 </div>

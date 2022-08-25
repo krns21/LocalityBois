@@ -17,28 +17,19 @@
                             <th>W</th>
                             <th>D</th>
                             <th>L</th>
-                            <th>GW</th>
+                            <th>TOT</th>
                             <th>Pts</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td class="numeric">1</td>
-                            <td>Sarujan Rajaratnam</td>
-                            <td class="numeric">0</td>
-                            <td class="numeric">1</td>
-                            <td class="numeric">0</td>
-                            <td class="numeric">78</td>
-                            <td class="numeric">1</td>
-                          </tr>
-                          <tr>
-                            <td class="numeric">1</td>
-                            <td>Sarujan Rajaratnam</td>
-                            <td class="numeric">0</td>
-                            <td class="numeric">1</td>
-                            <td class="numeric">0</td>
-                            <td class="numeric">78</td>
-                            <td class="numeric">1</td>
+                          <tr *ngFor = "let x of standings">
+                            <td class="numeric">{{x.rank}}</td>
+                            <td>{{x.player_name}}</td>
+                            <td class="numeric">{{x.won}}</td>
+                            <td class="numeric">{{x.drawn}}</td>
+                            <td class="numeric">{{x.lost}}</td>
+                            <td class="numeric">{{x.points}}</td>
+                            <td class="numeric">{{x.total}}</td>
                           </tr>
                         </tbody>
                       </table>
