@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Standings } from '../standings';
 import { PremServiceService } from '../prem-service.service';
 
 @Component({
@@ -8,13 +7,18 @@ import { PremServiceService } from '../prem-service.service';
   styleUrls: ['./prem-card.component.css']
 })
 export class PremCardComponent implements OnInit {
-  standings: Standings[] = [];
-
+  premResults!: Promise<Array<Object[]>>
   constructor(private premService:PremServiceService) {}
 
+
   getPrem(): void {
-    this.premService.getPrem()
-        .subscribe(results => this.standings=results);
+    this.premResults = this.premService.premserve()
+    this.premResults.then( (result) => {
+      for (const x of result[0]) {
+        console.log(x)
+      }
+      console.log(result)
+    })
   }
 
   ngOnInit(): void {

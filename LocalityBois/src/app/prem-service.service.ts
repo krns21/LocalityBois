@@ -1,32 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Standings } from './standings';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PremServiceService {
 
-  standings: Array<Standings> = [{
-    id: 1,
-    rank:1,
-    manager: "Mathesh Nanthakumaran",
-    gameweek: 7,
-    total:78
-  },
-  {
-    id: 1,
-    rank:2,
-    manager: "Sarujan Rajaratname",
-    gameweek: 74,
-    total:78
-  }
-]
+  constructor() {}
 
-  constructor() { }
-
-  getPrem(): Observable<Standings[]> {
-    const results = of(this.standings);
-    return results;
+  async premserve(): Promise<Array<Object[]>> {
+    const res = await fetch('https://fantasy.premierleague.com/api/leagues-classic/809489/standings/');
+    const body = await res.text();
+    const rep = JSON.parse(body).standings.results;
+    return [rep]
   }
 }
