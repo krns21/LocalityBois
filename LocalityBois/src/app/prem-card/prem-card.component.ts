@@ -1,4 +1,3 @@
-import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Standings } from '../standings';
 import { PremServiceService } from '../prem-service.service';
