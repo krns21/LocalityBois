@@ -27,6 +27,13 @@ export type H2HEntryDelegate = {
     points_for: number
   }
 
+  export type DraftResp = {
+    league:any
+    league_entries: DraftLeagueEntryDelegate[]
+    matches:any
+    standings:DraftStandingDelegate[]
+  }
+
   export type DraftStandingDelegate = {
     rank: number
     last_rank: number

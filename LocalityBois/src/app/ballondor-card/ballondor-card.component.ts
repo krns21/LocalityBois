@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PremServiceService } from '../prem-service.service';
 
 @Component({
   selector: 'app-ballondor-card',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BallondorCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:PremServiceService) { }
+
+  prem = this.api.getPrem()
 
   ngOnInit(): void {
   }
