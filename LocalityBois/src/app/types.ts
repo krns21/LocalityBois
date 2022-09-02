@@ -77,3 +77,18 @@ export type H2HEntryDelegate = {
     total: number
     entry: number
   }
+
+  export type ballon = {
+    entry:number
+    player_name:string
+    total: number
+    prem: number
+    champ: number
+    europ: number
+    facup: number
+  }
+  
+  export type sort = {
+    player_name:string
+    total:number
+  }

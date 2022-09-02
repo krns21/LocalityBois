@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { cup, DraftResp, H2HEntryDelegate, LeagueEntryDelegate, prem } from './types';
+import { ballon, cup, DraftResp, H2HEntryDelegate, LeagueEntryDelegate, prem } from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -96,7 +96,7 @@ export class PremServiceService {
       for (const x of result.standings) {
         const filt = result.league_entries.filter((y) => y.id == x.league_entry)
         let name: string
-        if (filt) {
+        if (filt[0].player_first_name) {
           name = filt[0].player_first_name + " " + filt[0].player_last_name
         } else {
           name = 'AVERAGE'
@@ -114,6 +114,92 @@ export class PremServiceService {
       }
     })
     return standings
+  }
+
+  getBallon(): ballon[] {
+    const premstandings: ballon[] = []
+    const champstandings: ballon[] = []
+    const europstandings: ballon[] = []
+    // initialize prem results
+    this.premserve().then((result) => {
+      for (const x of result) {
+        premstandings.push({
+          player_name: x.player_name,
+          entry: x.entry,
+          total: premS[x.rank-1],
+          prem: premS[x.rank-1],
+          champ: 0,
+          europ: 0,
+          facup: 0
+        })
+      }
+    }).then(() => {
+      this.champserve().then((result) => {
+        for (const x of premstandings) {
+          const champFilt = result.filter((y) => y.player_name == x.player_name)
+          if (champFilt[0]) {
+            champstandings.push({
+              player_name: x.player_name,
+              entry: x.entry,
+              total: x.total + champS[champFilt[0].rank-1],
+              prem: x.prem,
+              champ: champS[champFilt[0].rank-1],
+              europ: 0,
+              facup: 0
+            })
+          } else {
+             champstandings.push(x)
+          }
+        }
+      })
+    }).then(() => {
+      this.europserve().then((result) => {
+        for (const x of champstandings) {
+          const europFilt = result.filter((y) => y.player_name == x.player_name)
+          if (europFilt[0]) {
+            europstandings.push({
+              player_name:x.player_name,
+              entry: x.entry,
+              total: x.total + europS[europFilt[0].rank-1],
+              prem: x.prem,
+              champ: x.champ,
+              europ: europS[europFilt[0].rank-1],
+              facup: 0
+            })
+          } else {
+            europstandings.push(x)
+          }
+        }
+      })
+    }).then(() => {
+      this.facupserve().then((result) => {
+        for (const x of europstandings) {
+          const filt = result.league_entries.filter((y) => y.player_first_name + " "+ y.player_last_name == x.player_name)
+          if (filt[0]) {
+            const filt2 = result.standings.filter((z) => z.league_entry == filt[0].id)
+            if (filt2[0]) {
+              standings.push({
+                player_name: x.player_name,
+                entry: x.entry,
+                total: x.total + facupS[filt2[0].rank-1],
+                prem: x.prem,
+                champ: x.champ,
+                europ: x.europ,
+                facup: facupS[filt2[0].rank-1]
+              })
+            }
+          } else {
+            standings.push(x)
+          }
+        }
+      })
+    })
+    const premS = [26,22,18,13,9,6,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    const champS = [22,20,18,16,8,6,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    const europS = [10,7,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    const facupS= [14,12,9,7,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    const standings: ballon[] = []
+    return champstandings
   }
 
 }

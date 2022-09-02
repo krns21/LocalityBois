@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PremServiceService } from '../prem-service.service';
-import { cup, H2HEntryDelegate } from '../types';
+import { cup } from '../types';
 
 @Component({
   selector: 'app-champ-card',
@@ -8,7 +8,6 @@ import { cup, H2HEntryDelegate } from '../types';
   styleUrls: ['./champ-card.component.css']
 })
 export class ChampCardComponent implements OnInit {
-  champResults!: Promise<Array<H2HEntryDelegate>>
   standings: cup[] = []
 
   constructor(private api: PremServiceService) {}
