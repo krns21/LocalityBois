@@ -151,8 +151,7 @@ export class PremServiceService {
              champstandings.push(x)
           }
         }
-      })
-    }).then(() => {
+      }).then(() => {
       this.europserve().then((result) => {
         for (const x of champstandings) {
           const europFilt = result.filter((y) => y.player_name == x.player_name)
@@ -170,8 +169,7 @@ export class PremServiceService {
             europstandings.push(x)
           }
         }
-      })
-    }).then(() => {
+      }).then(() => {
       this.facupserve().then((result) => {
         for (const x of europstandings) {
           const filt = result.league_entries.filter((y) => y.player_first_name + " "+ y.player_last_name == x.player_name)
@@ -194,12 +192,14 @@ export class PremServiceService {
         }
       })
     })
+    })
+    })
     const premS = [26,22,18,13,9,6,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     const champS = [22,20,18,16,8,6,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     const europS = [10,7,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     const facupS= [14,12,9,7,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     const standings: ballon[] = []
-    return champstandings
+    return standings
   }
 
 }
