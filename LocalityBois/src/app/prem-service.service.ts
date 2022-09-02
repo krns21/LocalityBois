@@ -190,6 +190,8 @@ export class PremServiceService {
             standings.push(x)
           }
         }
+      }).then(() => {
+        standings.sort((a,b) => b.total - a.total)
       })
     })
     })
