@@ -9,7 +9,7 @@ export class PremServiceService {
   constructor() {}
 
   async premserve(): Promise<Array<LeagueEntryDelegate>> {
-    const res = await fetch('https://fantasy.premierleague.com/api/leagues-classic/809489/standings/');
+    const res = await fetch('https://still-waters-38230.herokuapp.com/https://fantasy.premierleague.com/api/leagues-classic/809489/standings/');
     const body = await res.text();
     const rep = JSON.parse(body).standings.results;
     return rep
@@ -32,7 +32,7 @@ export class PremServiceService {
   }
 
   async champserve(): Promise<Array<H2HEntryDelegate>> {
-    const res = await fetch('https://fantasy.premierleague.com/api/leagues-h2h/1367205/standings/');
+    const res = await fetch('https://still-waters-38230.herokuapp.com/https://fantasy.premierleague.com/api/leagues-h2h/1367205/standings/');
     const body = await res.text();
     const rep = JSON.parse(body).standings.results;
     return rep
@@ -58,7 +58,7 @@ export class PremServiceService {
   }
 
   async europserve(): Promise<Array<H2HEntryDelegate>> {
-    const res = await fetch('https://fantasy.premierleague.com/api/leagues-h2h/1436652/standings/');
+    const res = await fetch('https://still-waters-38230.herokuapp.com/https://fantasy.premierleague.com/api/leagues-h2h/1436652/standings/');
     const body = await res.text();
     const rep = JSON.parse(body).standings.results;
     return rep
@@ -84,7 +84,7 @@ export class PremServiceService {
   }
 
   async facupserve(): Promise<DraftResp> {
-    const res = await fetch('https://draft.premierleague.com/api/league/129208/details');
+    const res = await fetch('https://still-waters-38230.herokuapp.com/https://draft.premierleague.com/api/league/129208/details');
     const body = await res.text();
     const rep = JSON.parse(body);
     return rep
